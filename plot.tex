@@ -1,0 +1,74 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{mhchem}
+\usepackage{siunitx}
+\begin{document}
+    \begin{tikzpicture}
+        \pgfplotsset{set layers}
+        \begin{semilogyaxis}[
+            scale only axis,
+            width=189mm, height=267mm,
+            grid=both,
+            xmin=-10, xmax=40,
+            xlabel={$T / \si{\celsius}$},
+            xlabel style={font=\Large},
+            xticklabel style={font=\Large},
+            ymin=0.2, ymax=55,
+            axis y line*=left,
+            ylabel={$\rho_{\ce{H2O}} / \si{\gram\per\meter\cubed}$},
+            ylabel style={font=\Large},
+            extra y ticks={0.2,50.0},
+            yticklabel style={font=\Large},
+        ]
+            \addplot[black,mark=none,line width=2pt] table [x index=0, y index=10]{dat} node[right,pos=1.0] {$100\%$};;
+            \addplot[black,mark=none,line width=1pt] table [x index=0, y index=9]{dat};
+            \addplot[black,mark=none,line width=1pt] table [x index=0, y index=8]{dat};
+            \addplot[black,mark=none,line width=1pt] table [x index=0, y index=7]{dat};
+            \addplot[black,mark=none,line width=1pt] table [x index=0, y index=6]{dat};
+            \addplot[black,mark=none,line width=2pt] table [x index=0, y index=5]{dat};
+            \addplot[black,mark=none,line width=1pt] table [x index=0, y index=4]{dat};
+            \addplot[black,mark=none,line width=1pt] table [x index=0, y index=3]{dat};
+            \addplot[black,mark=none,line width=1pt] table [x index=0, y index=2]{dat};
+            \addplot[black,mark=none,line width=1pt] table [x index=0, y index=1]{dat};
+        \end{semilogyaxis}
+
+        \begin{semilogyaxis}[
+            scale only axis,
+            width=189mm, height=267mm,
+            xmin=-10, xmax=40,
+            axis y line*=right,
+            axis x line = none,
+            ymin=0.2, ymax=55,
+            ylabel style = {align=center},
+            ylabel={},
+            yticklabel style={font=\Large},
+            ytick={
+                 5.084581,
+                10.169163,
+                15.253744,
+                20.338326,
+                25.422907,
+                30.507489,
+                35.592070,
+                40.676652,
+                45.761233,
+                50.845815
+            },
+            yticklabels={
+                10\%,
+                20\%,
+                30\%,
+                40\%,
+                50\%,
+                60\%,
+                70\%,
+                80\%,
+                90\%,
+                100\%
+            }
+        ]
+            ;
+        \end{semilogyaxis}
+    \end{tikzpicture}
+\end{document}
